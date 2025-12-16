@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Assessment Form | ZSY Consultants</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f3f1f1;
+  padding: 20px;
+}
+
+.form-container {
+  max-width: 750px;
+  background: #fff;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+.form-header {
+  background: #182b5c;
+  color: #fff;
+  text-align: center;
+  padding: 25px;
+}
+
+.form-body {
+  padding: 30px;
+}
+
+label {
+  display: block;
+  margin-top: 18px;
+  font-weight: bold;
+  color: #182b5c;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23182b5c' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 14px;
+  padding-right: 35px;
+}
+
+.radio-group {
+  display: flex;
+  gap: 16px;
+  margin-top: 6px;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: normal;
+  color: #000;
+}
+
+.radio-group input { margin: 0; }
+
+.required { color: red; }
+
+button {
+  margin-top: 25px;
+  width: 100%;
+  padding: 14px;
+  background: #182b5c;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover { background: #0f1f44; }
+
+/* Education block */
+.education-block {
+  margin-top: 15px;
+  padding: 15px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.add-btn {
+  margin-top: 10px;
+  background: #0f1f44;
+  font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="form-container">
+  <div class="form-header">
+    <h2>Assessment Form</h2>
+    <p>ZSY Education Consultants</p>
+  </div>
+
+  <div class="form-body">
+    <form>
+
+      <label>Full Name <span class="required">*</span></label>
+      <input type="text" required>
+
+      <label>Gender <span class="required">*</span></label>
+      <div class="radio-group">
+        <label><input type="radio" name="gender" required> Male</label>
+        <label><input type="radio" name="gender"> Female</label>
+        <label><input type="radio" name="gender"> Other</label>
+      </div>
+
+      <label>Date of Birth <span class="required">*</span></label>
+      <input type="date" required>
+
+      <label>Phone Number <span class="required">*</span></label>
+      <input type="tel" required>
+
+      <label>Second Phone Number</label>
+      <input type="tel">
+
+      <label>Email <span class="required">*</span></label>
+      <input type="email" required>
+
+      <label>Have you given any English Language Test? <span class="required">*</span></label>
+      <div class="radio-group">
+        <label><input type="radio" name="english_test" required> Yes</label>
+        <label><input type="radio" name="english_test"> No</label>
+      </div>
+
+      <label>Test Name (if applicable)</label>
+      <input type="text">
+
+      <label>Band / Score</label>
+      <input type="text" placeholder="Overall, Listening, Speaking, Reading, Writing">
+
+      <label>Passport Number <span class="required">*</span></label>
+      <input type="text" required>
+
+      <label>Preferred Country <span class="required">*</span></label>
+      <input type="text" required>
+
+      <label>Preferred City <span class="required">*</span></label>
+      <input type="text" required>
+
+      <label>Which program do you want to study? <span class="required">*</span></label>
+      <input type="text" required>
+
+      <!-- 🔹 DYNAMIC EDUCATION -->
+      <label>Education <span class="required">*</span></label>
+
+      <div id="education-wrapper"></div>
+
+      <select id="degree-select">
+        <option value="">Select qualification to add</option>
+        <option value="SSC">SSC</option>
+        <option value="HSSC">HSSC</option>
+        <option value="Bachelor">Bachelor</option>
+        <option value="Master">Master</option>
+        <option value="MPhil">M Phil</option>
+      </select>
+
+      <button type="button" class="add-btn" id="add-education">
+        + Add Education
+      </button>
+
+      <label>Diplomas / short courses / certifications (if any)</label>
+      <textarea rows="2"></textarea>
+
+      <label>Estimated Budget <span class="required">*</span></label>
+      <select required>
+        <option value="">Select</option>
+        <option>15 - 20 Lacs</option>
+        <option>21 - 30 Lacs</option>
+        <option>31 - 40 Lacs</option>
+        <option>40 - 50 Lacs</option>
+        <option>More than 50 Lacs</option>
+      </select>
+
+      <label>Do you have any dependents? <span class="required">*</span></label>
+      <div class="radio-group">
+        <label><input type="radio" name="dependents" required> Yes</label>
+        <label><input type="radio" name="dependents"> No</label>
+      </div>
+
+      <label>How did you hear about us? <span class="required">*</span></label>
+      <select required>
+        <option value="">Select</option>
+        <option>Website</option>
+        <option>Social Media</option>
+        <option>Advertisement</option>
+        <option>Friend / Family</option>
+        <option>Any Reference</option>
+      </select>
+
+      <button type="submit">Submit Assessment</button>
+
+    </form>
+  </div>
+</div>
+
+<script>
+const addedDegrees = new Set();
+const select = document.getElementById("degree-select");
+const wrapper = document.getElementById("education-wrapper");
+const btn = document.getElementById("add-education");
+
+btn.addEventListener("click", () => {
+  const degree = select.value;
+  if (!degree || addedDegrees.has(degree)) return;
+
+  addedDegrees.add(degree);
+
+  const div = document.createElement("div");
+  div.className = "education-block";
+  div.innerHTML = `
+    <strong>${degree}</strong>
+
+    <label>Field of Study <span class="required">*</span></label>
+    <input type="text" required>
+
+    <label>Year Completed <span class="required">*</span></label>
+    <input type="number" placeholder="e.g. 2022" min="2005" max="2035" required>
+
+    <label>Gap Year? If yes, please explain.</label>
+    <textarea rows="2"></textarea>
+
+    <label>Percentage / CGPA <span class="required">*</span></label>
+    <input type="text" required>
+
+    <label>Recent Marks in English <span class="required">*</span></label>
+    <input type="text" required>
+
+    <label>Institute Name <span class="required">*</span></label>
+    <input type="text" required>
+  `;
+
+  wrapper.appendChild(div);
+  select.querySelector(`option[value="${degree}"]`).remove();
+  select.value = "";
+});
+</script>
+
+</body>
+
+<script>
+document.getElementById("assessmentForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const educationData = [];
+  document.querySelectorAll(".education-block").forEach(block => {
+    educationData.push({
+      degree: block.querySelector("strong").innerText,
+      field: block.querySelector('input[type="text"]').value,
+      year: block.querySelector('input[type="number"]').value,
+      cgpa: block.querySelectorAll('input[type="text"]')[1].value,
+      institute: block.querySelectorAll('input[type="text"]')[2].value
+    });
+  });
+
+  const payload = {
+    fullName: document.querySelector('input[type="text"]').value,
+    gender: document.querySelector('input[name="gender"]:checked')?.parentNode.innerText.trim(),
+    dob: document.querySelector('input[type="date"]').value,
+    phone: document.querySelector('input[type="tel"]').value,
+    phone2: document.querySelectorAll('input[type="tel"]')[1]?.value || "",
+    email: document.querySelector('input[type="email"]').value,
+    englishTest: document.querySelector('input[name="english_test"]:checked')?.parentNode.innerText.trim(),
+    testName: document.querySelectorAll('input[type="text"]')[1]?.value || "",
+    bandScore: document.querySelectorAll('input[type="text"]')[2]?.value || "",
+    passport: document.querySelectorAll('input[type="text"]')[3]?.value || "",
+    country: document.querySelectorAll('input[type="text"]')[4]?.value || "",
+    city: document.querySelectorAll('input[type="text"]')[5]?.value || "",
+    program: document.querySelectorAll('input[type="text"]')[6]?.value || "",
+    education: educationData,
+    diplomas: document.querySelector("textarea")?.value || "",
+    budget: document.querySelectorAll("select")[1]?.value || "",
+    dependents: document.querySelector('input[name="dependents"]:checked')?.parentNode.innerText.trim(),
+    source: document.querySelectorAll("select")[2]?.value || ""
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbzB17S6cZxZC2rPWBWBlIygVAUGlGAEMciI9iPGA4EsaFE8LNzWy9ZjmItukVPZ3YTv/exec", {
+    method: "POST",
+    body: JSON.stringify(payload)
+  })
+  .then(res => res.json())
+  .then(() => {
+    alert("Assessment submitted successfully!");
+    document.getElementById("assessmentForm").reset();
+  })
+  .catch(() => alert("Submission failed"));
+});
+</script>
+
+
+
+
+</html>
